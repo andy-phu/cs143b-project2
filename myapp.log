@@ -1,101 +1,58 @@
-{"level":"info","time":"2024-06-03T16:38:14-07:00","message":"this is the init file"}
-{"level":"info","time":"2024-06-03T16:38:14-07:00","message":"input1: 6 | input2: 3000 | input3: 4"}
-{"level":"info","time":"2024-06-03T16:38:14-07:00","message":"InitCounter: 0"}
-{"level":"info","time":"2024-06-03T16:38:14-07:00","message":"this is the init file"}
-{"level":"info","time":"2024-06-03T16:38:14-07:00","message":"input1: 6 | input2: 5 | input3: 9"}
-{"level":"info","time":"2024-06-03T16:38:14-07:00","message":"InitCounter: 1"}
-{"level":"info","time":"2024-06-03T16:38:14-07:00","message":"Prev Init: 4 | Inner: 2053"}
-{"level":"info","time":"2024-06-03T16:38:14-07:00","message":"the input of TA is: [1575424]\n"}
-{"level":"info","time":"2024-06-03T16:38:14-07:00","message":"input: 1575424 | va: 1575424 | s: 6 | p: 5 | w: 0 | pw: 2560"}
-{"level":"info","time":"2024-06-03T16:38:14-07:00","message":"left: 2053 | right: 0 | element: 9 | quotient: 4608"}
-{"level":"info","time":"2024-06-03T16:38:14-07:00","message":"translated: 4608"}
-{"level":"info","time":"2024-06-03T16:38:14-07:00","message":"the input of TA is: [1575863]\n"}
-{"level":"info","time":"2024-06-03T16:38:14-07:00","message":"input: 1575863 | va: 1575863 | s: 6 | p: 5 | w: 439 | pw: 2999"}
-{"level":"info","time":"2024-06-03T16:38:14-07:00","message":"left: 2053 | right: 439 | element: 9 | quotient: 5047"}
-{"level":"info","time":"2024-06-03T16:38:14-07:00","message":"translated: 5047"}
-{"level":"info","time":"2024-06-03T16:38:14-07:00","message":"the input of TA is: [1575864]\n"}
-{"level":"info","time":"2024-06-03T16:38:14-07:00","message":"input: 1575864 | va: 1575864 | s: 6 | p: 5 | w: 440 | pw: 3000"}
-{"level":"error","time":"2024-06-03T16:38:14-07:00","message":"PW > PM[26]: "}
-{"level":"info","time":"2024-06-03T16:38:14-07:00","message":"translated: -1"}
-{"level":"info","time":"2024-06-03T16:39:01-07:00","message":"this is the init file"}
-{"level":"info","time":"2024-06-03T16:39:01-07:00","message":"input1: 6 | input2: 3000 | input3: 4"}
-{"level":"info","time":"2024-06-03T16:39:01-07:00","message":"InitCounter: 0"}
-{"level":"info","time":"2024-06-03T16:39:01-07:00","message":"this is the init file"}
-{"level":"info","time":"2024-06-03T16:39:01-07:00","message":"input1: 6 | input2: 5 | input3: 9"}
-{"level":"info","time":"2024-06-03T16:39:01-07:00","message":"InitCounter: 1"}
-{"level":"info","time":"2024-06-03T16:39:01-07:00","message":"Prev Init: 4 | Inner: 2053"}
-{"level":"info","time":"2024-06-03T16:39:01-07:00","message":"the input of TA is: [1575424]\n"}
-{"level":"info","time":"2024-06-03T16:39:01-07:00","message":"input: 1575424 | va: 1575424 | s: 6 | p: 5 | w: 0 | pw: 2560"}
-{"level":"info","time":"2024-06-03T16:39:01-07:00","message":"left: 2053 | right: 0 | element: 9 | quotient: 4608"}
-{"level":"info","time":"2024-06-03T16:39:01-07:00","message":"translated: 4608"}
-{"level":"info","time":"2024-06-03T16:39:01-07:00","message":"the input of TA is: [1575863]\n"}
-{"level":"info","time":"2024-06-03T16:39:01-07:00","message":"input: 1575863 | va: 1575863 | s: 6 | p: 5 | w: 439 | pw: 2999"}
-{"level":"info","time":"2024-06-03T16:39:01-07:00","message":"left: 2053 | right: 439 | element: 9 | quotient: 5047"}
-{"level":"info","time":"2024-06-03T16:39:01-07:00","message":"translated: 5047"}
-{"level":"info","time":"2024-06-03T16:39:01-07:00","message":"the input of TA is: [1575864]\n"}
-{"level":"info","time":"2024-06-03T16:39:01-07:00","message":"input: 1575864 | va: 1575864 | s: 6 | p: 5 | w: 440 | pw: 3000"}
-{"level":"error","time":"2024-06-03T16:39:01-07:00","message":"PW > PM[26]: "}
-{"level":"info","time":"2024-06-03T16:39:01-07:00","message":"translated: -1"}
-{"level":"info","time":"2024-06-03T16:39:18-07:00","message":"this is the init file"}
-{"level":"info","time":"2024-06-03T16:39:18-07:00","message":"input1: 6 | input2: 3000 | input3: 4"}
-{"level":"info","time":"2024-06-03T16:39:18-07:00","message":"InitCounter: 0"}
-{"level":"info","time":"2024-06-03T16:39:18-07:00","message":"this is the init file"}
-{"level":"info","time":"2024-06-03T16:39:18-07:00","message":"input1: 6 | input2: 5 | input3: 9"}
-{"level":"info","time":"2024-06-03T16:39:18-07:00","message":"InitCounter: 1"}
-{"level":"info","time":"2024-06-03T16:39:18-07:00","message":"Prev Init: 4 | Inner: 2053"}
-{"level":"info","time":"2024-06-03T16:39:18-07:00","message":"the input of TA is: [1575424]\n"}
-{"level":"info","time":"2024-06-03T16:39:18-07:00","message":"input: 1575424 | va: 1575424 | s: 6 | p: 5 | w: 0 | pw: 2560"}
-{"level":"info","time":"2024-06-03T16:39:18-07:00","message":"left: 2053 | right: 0 | element: 9 | quotient: 4608"}
-{"level":"info","time":"2024-06-03T16:39:18-07:00","message":"translated: 4608"}
-{"level":"info","time":"2024-06-03T16:39:18-07:00","message":"the input of TA is: [1575863]\n"}
-{"level":"info","time":"2024-06-03T16:39:18-07:00","message":"input: 1575863 | va: 1575863 | s: 6 | p: 5 | w: 439 | pw: 2999"}
-{"level":"info","time":"2024-06-03T16:39:18-07:00","message":"left: 2053 | right: 439 | element: 9 | quotient: 5047"}
-{"level":"info","time":"2024-06-03T16:39:18-07:00","message":"translated: 5047"}
-{"level":"info","time":"2024-06-03T16:39:18-07:00","message":"the input of TA is: [1575864]\n"}
-{"level":"info","time":"2024-06-03T16:39:18-07:00","message":"input: 1575864 | va: 1575864 | s: 6 | p: 5 | w: 440 | pw: 3000"}
-{"level":"error","time":"2024-06-03T16:39:18-07:00","message":"PW > PM[26]: "}
-{"level":"info","time":"2024-06-03T16:39:18-07:00","message":"translated: -1"}
-{"level":"info","time":"2024-06-03T16:43:30-07:00","message":"this is the init file"}
-{"level":"info","time":"2024-06-03T16:43:30-07:00","message":"input1: 6 | input2: 3000 | input3: 4"}
-{"level":"info","time":"2024-06-03T16:43:30-07:00","message":"InitCounter: 0"}
-{"level":"info","time":"2024-06-03T16:43:30-07:00","message":"this is the init file"}
-{"level":"info","time":"2024-06-03T16:43:30-07:00","message":"input1: 6 | input2: 5 | input3: 9"}
-{"level":"info","time":"2024-06-03T16:43:30-07:00","message":"InitCounter: 1"}
-{"level":"info","time":"2024-06-03T16:43:30-07:00","message":"Prev Init: 4 | Inner: 2053"}
-{"level":"info","time":"2024-06-03T16:43:30-07:00","message":"the input of TA is: [1575424]\n"}
-{"level":"info","time":"2024-06-03T16:43:30-07:00","message":"input: 1575424 | va: 1575424 | s: 6 | p: 5 | w: 0 | pw: 2560"}
-{"level":"info","time":"2024-06-03T16:43:30-07:00","message":"left: 2053 | right: 0 | element: 9 | quotient: 4608"}
-{"level":"info","time":"2024-06-03T16:43:30-07:00","message":"translated: 4608"}
-{"level":"info","time":"2024-06-03T16:43:30-07:00","message":"the input of TA is: [1575863]\n"}
-{"level":"info","time":"2024-06-03T16:43:30-07:00","message":"input: 1575863 | va: 1575863 | s: 6 | p: 5 | w: 439 | pw: 2999"}
-{"level":"info","time":"2024-06-03T16:43:30-07:00","message":"left: 2053 | right: 439 | element: 9 | quotient: 5047"}
-{"level":"info","time":"2024-06-03T16:43:30-07:00","message":"translated: 5047"}
-{"level":"info","time":"2024-06-03T16:43:30-07:00","message":"the input of TA is: [1575864]\n"}
-{"level":"info","time":"2024-06-03T16:43:30-07:00","message":"input: 1575864 | va: 1575864 | s: 6 | p: 5 | w: 440 | pw: 3000"}
-{"level":"error","time":"2024-06-03T16:43:30-07:00","message":"PW > PM[26]: "}
-{"level":"info","time":"2024-06-03T16:43:30-07:00","message":"translated: -1"}
-{"level":"info","time":"2024-06-03T16:43:50-07:00","message":"this is the init file"}
-{"level":"info","time":"2024-06-03T16:43:50-07:00","message":"input1: 6 | input2: 3000 | input3: 4"}
-{"level":"info","time":"2024-06-03T16:43:50-07:00","message":"InitCounter: 0"}
-{"level":"info","time":"2024-06-03T16:43:50-07:00","message":"this is the init file"}
-{"level":"info","time":"2024-06-03T16:43:50-07:00","message":"input1: 6 | input2: 5 | input3: 9"}
-{"level":"info","time":"2024-06-03T16:43:50-07:00","message":"InitCounter: 1"}
-{"level":"info","time":"2024-06-03T16:43:50-07:00","message":"Prev Init: 4 | Inner: 2053"}
-{"level":"info","time":"2024-06-03T16:43:50-07:00","message":"the input of TA is: [1575424]\n"}
-{"level":"info","time":"2024-06-03T16:43:50-07:00","message":"input: 1575424 | va: 1575424 | s: 6 | p: 5 | w: 0 | pw: 2560"}
-{"level":"info","time":"2024-06-03T16:43:50-07:00","message":"left: 2053 | right: 0 | element: 9 | quotient: 4608"}
-{"level":"info","time":"2024-06-03T16:43:50-07:00","message":"translated: 4608"}
-{"level":"info","time":"2024-06-03T16:43:50-07:00","message":"the input of TA is: [1575863]\n"}
-{"level":"info","time":"2024-06-03T16:43:50-07:00","message":"input: 1575863 | va: 1575863 | s: 6 | p: 5 | w: 439 | pw: 2999"}
-{"level":"info","time":"2024-06-03T16:43:50-07:00","message":"left: 2053 | right: 439 | element: 9 | quotient: 5047"}
-{"level":"info","time":"2024-06-03T16:43:50-07:00","message":"translated: 5047"}
-{"level":"info","time":"2024-06-03T16:43:50-07:00","message":"the input of TA is: [1575864]\n"}
-{"level":"info","time":"2024-06-03T16:43:50-07:00","message":"input: 1575864 | va: 1575864 | s: 6 | p: 5 | w: 440 | pw: 3000"}
-{"level":"error","time":"2024-06-03T16:43:50-07:00","message":"PW > PM[26]: "}
-{"level":"info","time":"2024-06-03T16:43:50-07:00","message":"translated: -1"}
-{"level":"info","time":"2024-06-03T16:43:50-07:00","message":"No input either NL or init file"}
-{"level":"info","time":"2024-06-03T16:43:50-07:00","message":"the input of NL is: NL\n"}
-{"level":"info","time":"2024-06-03T16:43:50-07:00","message":"the input of RP is: [12]\n"}
-{"level":"info","time":"2024-06-03T16:43:50-07:00","message":"the input of RP is: [13]\n"}
-{"level":"info","time":"2024-06-03T16:43:50-07:00","message":"the input of RP is: [2053]\n"}
-{"level":"info","time":"2024-06-03T16:43:50-07:00","message":"the input of RP is: [1024]\n"}
+{"level":"info","message":"this is the init file"}
+{"level":"info","message":"cmd: 8 | input: [4000 3 9 5000 -7]"}
+{"level":"info","message":"InitCounter: 0"}
+{"level":"info","message":"FREE LIST REMOVAL: 3"}
+{"level":"info","message":"InitCounter: 0"}
+{"level":"info","message":"FREE LIST REMOVAL: -7"}
+{"level":"info","message":"FREE LIST REMOVAL: 0"}
+{"level":"info","message":"this is the init file"}
+{"level":"info","message":"cmd: 8 | input: [0 10 8 1 -20 9 0 13 9 1 -25]"}
+{"level":"info","message":"InitCounter: 1"}
+{"level":"info","message":"Prev Init: 3 | Inner: 1536"}
+{"level":"info","message":"FREE LIST REMOVAL: 10"}
+{"level":"info","message":"InitCounter: 1"}
+{"level":"info","message":"Prev Init: 3 | Inner: 1537"}
+{"level":"info","message":"InitCounter: 1"}
+{"level":"info","message":"page fault: -7"}
+{"level":"info","message":"InitCounter: 1"}
+{"level":"info","message":"page fault: -7"}
+{"level":"info","message":"FREE LIST REMOVAL: 1"}
+{"level":"info","message":"the input of RP is: [2049]\n"}
+{"level":"info","message":"the input of RP is: [19]\n"}
+{"level":"info","message":"No input either NL or init file"}
+{"level":"info","message":"the input of NL is: NL\n"}
+{"level":"info","message":"the input of TA is: [2097162]\n"}
+{"level":"info","message":"input: 2097162 | va: 2097162 | s: 8 | p: 0 | w: 10 | pw: 10"}
+{"level":"info","message":"ptIndex: 3"}
+{"level":"info","message":"pgIndex: 10"}
+{"level":"info","message":"translated: 5130"}
+{"level":"info","message":"the input of TA is: [2097674]\n"}
+{"level":"info","message":"input: 2097674 | va: 2097674 | s: 8 | p: 1 | w: 10 | pw: 522"}
+{"level":"info","message":"ptIndex: 3"}
+{"level":"info","message":"pgIndex: -20"}
+{"level":"info","message":"FREE LIST REMOVAL: 2"}
+{"level":"info","message":"translated: 1034"}
+{"level":"info","message":"the input of TA is: [2359306]\n"}
+{"level":"info","message":"input: 2359306 | va: 2359306 | s: 9 | p: 0 | w: 10 | pw: 10"}
+{"level":"info","message":"ptIndex: -7"}
+{"level":"info","message":"freeFrameIndex: 4"}
+{"level":"info","message":"FREE LIST REMOVAL: 4"}
+{"level":"info","message":"putting new frame index here : 19"}
+{"level":"info","message":"BLOCK : 13 at x: 7 | y: 0"}
+{"level":"info","message":"translated: 6666"}
+{"level":"info","message":"No input either NL or init file"}
+{"level":"info","message":"the input of NL is: NL\n"}
+{"level":"info","message":"the input of RP is: [2049]\n"}
+{"level":"info","message":"the input of RP is: [19]\n"}
+{"level":"info","message":"No input either NL or init file"}
+{"level":"info","message":"the input of NL is: NL\n"}
+{"level":"info","message":"the input of TA is: [2359818]\n"}
+{"level":"info","message":"input: 2359818 | va: 2359818 | s: 9 | p: 1 | w: 10 | pw: 522"}
+{"level":"info","message":"ptIndex: 4"}
+{"level":"info","message":"pgIndex: -25"}
+{"level":"info","message":"FREE LIST REMOVAL: 5"}
+{"level":"info","message":"translated: 2570"}
+{"level":"info","message":"No input either NL or init file"}
+{"level":"info","message":"the input of NL is: NL\n"}
+{"level":"info","message":"the input of RP is: [2049]\n"}
+{"level":"info","message":"the input of RP is: [19]\n"}

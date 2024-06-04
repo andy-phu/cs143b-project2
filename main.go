@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"github.com/rs/zerolog"
+	"github.com/zyedidia/generic/list"
 	"os"
 	"strconv"
 	"strings"
@@ -23,11 +24,21 @@ type SegmentTable struct {
 
 var log = zerolog.New(zerolog.ConsoleWriter{Out: os.Stdout}).With().Timestamp().Caller().Logger()
 var initCounter = 0
-var prevInit = 0
+var freeList = list.New[int]()
 
-//=============================================================================================================
+// =============================================================================================================
+func removeValue(value int) {
+	log.Info().Msgf("FREE LIST REMOVAL: %d", value)
+	cur := freeList.Front
+	for cur != nil {
+		if cur.Value == value {
+			freeList.Remove(cur)
+		}
+		cur = cur.Next
+	}
+}
 
-func runCommand(c Command, PM *[]int, DISK *disk, ST *[]SegmentTable) {
+func runCommand(c Command, PM *[]int, DISK *disk, ST *[]SegmentTable) bool {
 	cmd := c.Type
 	input := c.Args
 
@@ -53,32 +64,71 @@ func runCommand(c Command, PM *[]int, DISK *disk, ST *[]SegmentTable) {
 		}
 	case "PrintInit":
 		log.Info().Msgf("PM: %v", *PM) // Print the entire PM array
+	case "PrintDisk":
+		log.Info().Msgf("DISK: %v", *DISK) // Print the entire PM array
 	default:
 		log.Info().Msgf("this is the init file")
-		log.Info().Msgf("input1: %s | input2: %s | input3: %s", cmd, input[0], input[1]) // Print the entire PM array
-		initial(PM, DISK, ST, cmd, input[0], input[1])
+		//log.Info().Msgf("input1: %s | input2: %s | input3: %s", cmd, input[0], input[1]) // Print the entire PM array
+		log.Info().Msgf("cmd: %s | input: %v", cmd, input)
+		combined := make([]string, 0, len(input)+1)
+		combined = append(combined, cmd)
+		combined = append(combined, input...)
+
+		if !initial(PM, DISK, ST, combined) {
+			log.Error().Msgf("ERROR: size of input array is not a multiple of 3 (%d)", len(input))
+			return false
+		}
+
+		removeValue(initCounter)
 		initCounter++
 	}
+	return true
 
 }
 
-func initial(PM *[]int, DISK *disk, ST *[]SegmentTable, a string, b string, c string) {
-	s, _ := strconv.Atoi(a)
-	z, _ := strconv.Atoi(b)
-	f, _ := strconv.Atoi(c)
-	log.Info().Msgf("InitCounter: %d", initCounter)
-	//first line of init file
-	if initCounter == 0 {
-		(*PM)[2*s] = z
-		(*PM)[(2*s)+1] = f
-		prevInit = f
-	} else { //second line
-		temp := prevInit * 512
-		inner := temp + z
-		log.Info().Msgf("Prev Init: %d | Inner: %d", prevInit, inner)
-		(*PM)[inner] = f
+func initial(PM *[]int, DISK *disk, ST *[]SegmentTable, input []string) bool {
+	//Line 1: 8 4000 3 9 5000 ‐7
+	//every 3 is szf, which defines where the segment tables reside in the PM
+
+	//input array has to be multiples of 3
+	if len(input)%3 != 0 {
+		log.Error().Msgf("the size of the input array is: %d", len(input))
+		return false
 	}
 
+	for i := 0; i < len(input); i += 3 {
+
+		s, _ := strconv.Atoi(input[i])
+		z, _ := strconv.Atoi(input[i+1])
+		f, _ := strconv.Atoi(input[i+2])
+
+		log.Info().Msgf("InitCounter: %d", initCounter)
+		//first line of init file
+		if initCounter == 0 {
+			(*PM)[2*s] = z
+			(*PM)[(2*s)+1] = f
+			removeValue(f)
+		} else { //second line
+			prevInit := (*PM)[(2*s)+1]
+
+			//page fault because the
+			if prevInit < 0 {
+				(*DISK)[-1*prevInit][z] = f
+				log.Info().Msgf("page fault: %v", prevInit)
+			} else {
+				temp := prevInit * 512
+				inner := temp + z
+				log.Info().Msgf("Prev Init: %d | Inner: %d", prevInit, inner)
+				(*PM)[inner] = f
+				//log.Info().Msgf("Not a Page fault and the frame is no longer free : %v", f)
+				if f > 0 {
+					removeValue(f)
+				}
+			}
+		}
+	}
+
+	return true
 }
 
 func read(PM *[]int, input string) int {
@@ -89,6 +139,7 @@ func read(PM *[]int, input string) int {
 	return (*PM)[pa]
 }
 func translate(PM *[]int, DISK *disk, ST *[]SegmentTable, input string) int {
+
 	input = strings.TrimSpace(input)
 
 	va, err := strconv.Atoi(input)
@@ -116,11 +167,42 @@ func translate(PM *[]int, DISK *disk, ST *[]SegmentTable, input string) int {
 		return -1
 	}
 
-	left := ((*PM)[(2*int(s))+1] * 512) + int(p)
-	right := int(w)
-	element := (*PM)[left]
-	quotient := (element * 512) + right
-	log.Info().Msgf("left: %d | right: %d | element: %d | quotient: %d", left, right, element, quotient)
+	ptIndex := (*PM)[(2*int(s))+1]
+	log.Info().Msgf("ptIndex: %v", ptIndex)
+
+	if ptIndex < 0 {
+		prevPtIndex := ptIndex
+		head := freeList.Front
+		freeFrameIndex := head.Value
+		log.Info().Msgf("freeFrameIndex: %v", freeFrameIndex)
+		removeValue(freeFrameIndex)
+		//allocate the new free frame to the ptIndex
+		//and make the physical memory have the page table at newpt * 512
+		ptIndex = freeFrameIndex
+		block := (*DISK)[-1*prevPtIndex][int(p)]
+		log.Info().Msgf("putting new frame index here : %v", (2*int(s))+1)
+		(*PM)[(2*int(s))+1] = ptIndex
+		log.Info().Msgf("BLOCK : %v at x: %d | y: %d", block, -1*prevPtIndex, int(p))
+		//transfer over prevPtIndex from disk to the new one
+		//(*PM)[ptIndex*512+int(p)] = block
+		if block > 0 {
+			for i, blockVal := range (*DISK)[-1*prevPtIndex] {
+				(*PM)[ptIndex*512+int(p)+i] = blockVal
+			}
+			return (block * 512) + int(w)
+		}
+
+	}
+	pgIndex := (*PM)[(ptIndex*512)+int(p)]
+	log.Info().Msgf("pgIndex: %v", pgIndex)
+	if pgIndex < 0 {
+		head := freeList.Front
+		freeFrameIndex := head.Value
+		removeValue(freeFrameIndex)
+		(*PM)[(2*int(s))+1] = ptIndex
+		return freeFrameIndex*512 + int(w)
+	}
+	quotient := (pgIndex * 512) + int(w)
 
 	return quotient
 }
@@ -137,7 +219,7 @@ func main() {
 
 	defer file.Close()
 
-	log = zerolog.New(file).With().Timestamp().Logger()
+	log = zerolog.New(file).With().Logger()
 
 	scanner := bufio.NewScanner(os.Stdin)
 	PM := make([]int, 524288)
@@ -156,6 +238,10 @@ func main() {
 		DISK[i] = make([]int, 512)
 	}
 
+	for i := 0; i < 1024; i++ {
+		freeList.PushBack(i)
+	}
+
 	for scanner.Scan() {
 		line := scanner.Text()
 
@@ -168,7 +254,10 @@ func main() {
 		}
 		command := Command{Type: parts[0], Args: value}
 
-		runCommand(command, &PM, &DISK, &ST)
+		if !runCommand(command, &PM, &DISK, &ST) {
+			break
+			log.Error().Msgf("Error executing command")
+		}
 	}
 
 }
