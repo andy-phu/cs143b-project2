@@ -77,14 +77,8 @@
 {"level":"error","message":"PW > PM[21]: "}
 {"level":"info","message":"translated: -1"}
 {"level":"info","message":"the input of TA is: [524288]\n"}
-{"level":"info","message":"input: 524288 | va: 524288 | s: 2 | p: 0 | w: 0 | pw: 0"}
-{"level":"info","message":"ptIndex: -31"}
-{"level":"info","message":"freeFrameIndex: 2"}
-{"level":"info","message":"FREE LIST REMOVAL: 2"}
-{"level":"info","message":"putting new frame index here : 5"}
-{"level":"info","message":"BLOCK : 2 at x: 31 | y: 0"}
-{"level":"info","message":"pgIndex: 2"}
-{"level":"info","message":"translated: 1024"}
+{"level":"error","message":"Error converting string to int:%!(EXTRA <nil>)"}
+{"level":"info","message":"translated: -1"}
 {"level":"info","message":"No input either NL or init file"}
 {"level":"info","message":"the input of NL is: NL\n"}
 {"level":"info","message":"the input of RP is: [5]\n"}
@@ -109,3 +103,72 @@
 {"level":"info","message":"the input of RP is: [5]\n"}
 {"level":"info","message":"the input of RP is: [3074]\n"}
 {"level":"info","message":"the input of RP is: [4609]\n"}
+{"level":"info","message":"this is the init file"}
+{"level":"info","message":"cmd: 3 | input: [1025 11 1 262000 4 0 900 10]"}
+{"level":"info","message":"InitCounter: 0"}
+{"level":"info","message":"FREE LIST REMOVAL: 11"}
+{"level":"info","message":"InitCounter: 0"}
+{"level":"info","message":"FREE LIST REMOVAL: 4"}
+{"level":"info","message":"InitCounter: 0"}
+{"level":"info","message":"FREE LIST REMOVAL: 10"}
+{"level":"info","message":"FREE LIST REMOVAL: 0"}
+{"level":"info","message":"this is the init file"}
+{"level":"info","message":"cmd: 0 | input: [0 12 0 1 8 1 0 2 1 511 3 3 0 5 3 2 9]"}
+{"level":"info","message":"InitCounter: 1"}
+{"level":"info","message":"Prev Init: 10 | Inner: 5120"}
+{"level":"info","message":"FREE LIST REMOVAL: 12"}
+{"level":"info","message":"InitCounter: 1"}
+{"level":"info","message":"Prev Init: 10 | Inner: 5121"}
+{"level":"info","message":"FREE LIST REMOVAL: 8"}
+{"level":"info","message":"InitCounter: 1"}
+{"level":"info","message":"Prev Init: 4 | Inner: 2048"}
+{"level":"info","message":"FREE LIST REMOVAL: 2"}
+{"level":"info","message":"InitCounter: 1"}
+{"level":"info","message":"Prev Init: 4 | Inner: 2559"}
+{"level":"info","message":"FREE LIST REMOVAL: 3"}
+{"level":"info","message":"InitCounter: 1"}
+{"level":"info","message":"Prev Init: 11 | Inner: 5632"}
+{"level":"info","message":"FREE LIST REMOVAL: 5"}
+{"level":"info","message":"InitCounter: 1"}
+{"level":"info","message":"Prev Init: 11 | Inner: 5634"}
+{"level":"info","message":"FREE LIST REMOVAL: 9"}
+{"level":"info","message":"FREE LIST REMOVAL: 1"}
+{"level":"info","message":"the input of RP is: [6]\n"}
+{"level":"info","message":"the input of RP is: [7]\n"}
+{"level":"info","message":"the input of RP is: [5120]\n"}
+{"level":"info","message":"No input either NL or init file"}
+{"level":"info","message":"the input of NL is: NL\n"}
+{"level":"info","message":"the input of TA is: [0]\n"}
+{"level":"info","message":"input: 0 | va: 0 | s: 0 | p: 0 | w: 0 | pw: 0"}
+{"level":"info","message":"ptIndex: 10"}
+{"level":"info","message":"pgIndex: 12"}
+{"level":"info","message":"translated: 6144"}
+{"level":"info","message":"the input of TA is: [512]\n"}
+{"level":"info","message":"input: 512 | va: 512 | s: 0 | p: 1 | w: 0 | pw: 512"}
+{"level":"info","message":"ptIndex: 10"}
+{"level":"info","message":"pgIndex: 8"}
+{"level":"info","message":"translated: 4096"}
+{"level":"info","message":"the input of TA is: [522]\n"}
+{"level":"info","message":"input: 522 | va: 522 | s: 0 | p: 1 | w: 10 | pw: 522"}
+{"level":"info","message":"ptIndex: 10"}
+{"level":"info","message":"pgIndex: 8"}
+{"level":"info","message":"translated: 4106"}
+{"level":"info","message":"the input of TA is: [787456]\n"}
+{"level":"error","message":"Error converting string to int:%!(EXTRA <nil>)"}
+{"level":"info","message":"translated: -1"}
+{"level":"info","message":"the input of TA is: [787457]\n"}
+{"level":"error","message":"Error converting string to int:%!(EXTRA <nil>)"}
+{"level":"info","message":"translated: -1"}
+{"level":"info","message":"the input of TA is: [1012]\n"}
+{"level":"info","message":"input: 1012 | va: 1012 | s: 0 | p: 1 | w: 500 | pw: 1012"}
+{"level":"error","message":"PW > PM[20]: "}
+{"level":"info","message":"translated: -1"}
+{"level":"info","message":"the input of TA is: [523776]\n"}
+{"level":"info","message":"input: 523776 | va: 523776 | s: 1 | p: 511 | w: 0 | pw: 261632"}
+{"level":"info","message":"ptIndex: 4"}
+{"level":"info","message":"pgIndex: 3"}
+{"level":"info","message":"translated: 1536"}
+{"level":"info","message":"the input of TA is: [524287]\n"}
+{"level":"info","message":"input: 524287 | va: 524287 | s: 1 | p: 511 | w: 511 | pw: 262143"}
+{"level":"error","message":"PW > PM[21]: "}
+{"level":"info","message":"translated: -1"}

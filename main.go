@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"flag"
 	"fmt"
 	"github.com/rs/zerolog"
 	"github.com/zyedidia/generic/list"
@@ -22,11 +23,31 @@ type SegmentTable struct {
 	FrameNumber int
 }
 
+type FileFlag struct {
+	Value *os.File
+}
+
+func (f *FileFlag) String() string {
+	if f.Value == nil {
+		return ""
+	}
+	return f.Value.Name()
+}
+
 var log = zerolog.New(zerolog.ConsoleWriter{Out: os.Stdout}).With().Timestamp().Caller().Logger()
 var initCounter = 0
 var freeList = list.New[int]()
 
 // =============================================================================================================
+func (f *FileFlag) Set(value string) error {
+	file, err := os.Open(value)
+	if err != nil {
+		return err
+	}
+	f.Value = file
+	return nil
+}
+
 func removeValue(value int) {
 	log.Info().Msgf("FREE LIST REMOVAL: %d", value)
 	cur := freeList.Front
@@ -148,7 +169,7 @@ func translate(PM *[]int, DISK *disk, ST *[]SegmentTable, input string) int {
 	wMask := uint32(0x1FF)
 	pwMask := uint32(0x3FFFF)
 
-	if err != nil || va > 524288 { // Handle potential errors
+	if err != nil || va >= 524288 { // Handle potential errors
 		log.Error().Msgf("Error converting string to int:", err)
 		return -1
 	}
@@ -209,7 +230,9 @@ func translate(PM *[]int, DISK *disk, ST *[]SegmentTable, input string) int {
 	return quotient
 }
 
+// ./main -file1 init-dp.txt -file2 input-dp.txt
 func main() {
+
 	file, err := os.OpenFile(
 		"myapp.log",
 		os.O_APPEND|os.O_CREATE|os.O_WRONLY,
@@ -218,18 +241,16 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-
 	defer file.Close()
 
 	log = zerolog.New(file).With().Logger()
 
-	scanner := bufio.NewScanner(os.Stdin)
 	PM := make([]int, 524288)
 	DISK := make(disk, 1024)
 	ST := make([]SegmentTable, 1024)
 
 	for i := range PM {
-		PM[i] = 0 // Explicitly assign zero to each element
+		PM[i] = 0
 	}
 
 	for i := range ST {
@@ -244,8 +265,24 @@ func main() {
 		freeList.PushBack(i)
 	}
 
-	for scanner.Scan() {
-		line := scanner.Text()
+	var file1Flag = flag.String("file1", "", "First file")
+	var file2Flag = flag.String("file2", "", "Second file")
+	flag.Parse()
+
+	if *file1Flag == "" || *file2Flag == "" {
+		fmt.Println("Usage: incorrect file path")
+		os.Exit(1)
+	}
+
+	file1, err := os.OpenFile(*file1Flag, os.O_RDONLY, 0)
+	if err != nil {
+		log.Error().Msgf("ERROR: file1: %v", err)
+	}
+	defer file1.Close()
+	scanner1 := bufio.NewScanner(file1)
+
+	for scanner1.Scan() {
+		line := scanner1.Text()
 
 		parts := strings.Split(line, " ")
 		value := parts
@@ -257,8 +294,33 @@ func main() {
 		command := Command{Type: parts[0], Args: value}
 
 		if !runCommand(command, &PM, &DISK, &ST) {
-			break
 			log.Error().Msgf("Error executing command")
+			break
+		}
+	}
+
+	file2, err := os.OpenFile(*file2Flag, os.O_RDONLY, 0)
+	if err != nil {
+		log.Error().Msgf("ERROR: file2: %v", err)
+	}
+	defer file2.Close()
+	scanner2 := bufio.NewScanner(file2)
+
+	for scanner2.Scan() {
+		line := scanner2.Text()
+
+		parts := strings.Split(line, " ")
+		value := parts
+		if len(parts) < 2 {
+			log.Info().Msgf("No input either NL or init file")
+		} else {
+			value = parts[1:]
+		}
+		command := Command{Type: parts[0], Args: value}
+
+		if !runCommand(command, &PM, &DISK, &ST) {
+			log.Error().Msgf("Error executing command")
+			break
 		}
 	}
 
