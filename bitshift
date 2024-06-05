@@ -1,0 +1,13 @@
+{"level":"info","message":"input: 0 | va: 0 | s: 0 | p: 0 | w: 0 | pw: 0"}
+{"level":"info","message":"input: 512 | va: 512 | s: 0 | p: 1 | w: 0 | pw: 512"}
+{"level":"info","message":"input: 522 | va: 522 | s: 0 | p: 1 | w: 10 | pw: 522"}
+{"level":"info","message":"input: 787456 | va: 787456 | s: 3 | p: 2 | w: 0 | pw: 1024"}
+{"level":"info","message":"input: 787457 | va: 787457 | s: 3 | p: 2 | w: 1 | pw: 1025"}
+{"level":"info","message":"input: 1012 | va: 1012 | s: 0 | p: 1 | w: 500 | pw: 1012"}
+{"level":"info","message":"input: 523776 | va: 523776 | s: 1 | p: 511 | w: 0 | pw: 261632"}
+{"level":"info","message":"input: 524287 | va: 524287 | s: 1 | p: 511 | w: 511 | pw: 262143"}
+{"level":"info","message":"input: 524288 | va: 524288 | s: 2 | p: 0 | w: 0 | pw: 0"}
+{"level":"info","message":"input: 524850 | va: 524850 | s: 2 | p: 1 | w: 50 | pw: 562"}
+{"level":"info","message":"input: 525312 | va: 525312 | s: 2 | p: 2 | w: 0 | pw: 1024"}
+{"level":"info","message":"input: 525512 | va: 525512 | s: 2 | p: 2 | w: 200 | pw: 1224"}
+{"level":"info","message":"input: 786944 | va: 786944 | s: 3 | p: 1 | w: 0 | pw: 512"}

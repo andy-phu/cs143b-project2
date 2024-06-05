@@ -148,7 +148,7 @@ func translate(PM *[]int, DISK *disk, ST *[]SegmentTable, input string) int {
 	wMask := uint32(0x1FF)
 	pwMask := uint32(0x3FFFF)
 
-	if err != nil { // Handle potential errors
+	if err != nil || va > 524288 { // Handle potential errors
 		log.Error().Msgf("Error converting string to int:", err)
 		return -1
 	}
@@ -169,7 +169,7 @@ func translate(PM *[]int, DISK *disk, ST *[]SegmentTable, input string) int {
 
 	ptIndex := (*PM)[(2*int(s))+1]
 	log.Info().Msgf("ptIndex: %v", ptIndex)
-
+	finalFrame := 0
 	if ptIndex < 0 {
 		prevPtIndex := ptIndex
 		head := freeList.Front
@@ -180,29 +180,31 @@ func translate(PM *[]int, DISK *disk, ST *[]SegmentTable, input string) int {
 		//and make the physical memory have the page table at newpt * 512
 		ptIndex = freeFrameIndex
 		block := (*DISK)[-1*prevPtIndex][int(p)]
+		finalFrame = block
 		log.Info().Msgf("putting new frame index here : %v", (2*int(s))+1)
 		(*PM)[(2*int(s))+1] = ptIndex
 		log.Info().Msgf("BLOCK : %v at x: %d | y: %d", block, -1*prevPtIndex, int(p))
 		//transfer over prevPtIndex from disk to the new one
 		//(*PM)[ptIndex*512+int(p)] = block
-		if block > 0 {
-			for i, blockVal := range (*DISK)[-1*prevPtIndex] {
-				(*PM)[ptIndex*512+int(p)+i] = blockVal
-			}
-			return (block * 512) + int(w)
+		for i, blockVal := range (*DISK)[-1*prevPtIndex] {
+			(*PM)[ptIndex*512+int(p)+i] = blockVal
 		}
-
 	}
+
 	pgIndex := (*PM)[(ptIndex*512)+int(p)]
 	log.Info().Msgf("pgIndex: %v", pgIndex)
 	if pgIndex < 0 {
 		head := freeList.Front
 		freeFrameIndex := head.Value
+		finalFrame = freeFrameIndex
 		removeValue(freeFrameIndex)
-		(*PM)[(2*int(s))+1] = ptIndex
-		return freeFrameIndex*512 + int(w)
+		(*PM)[(ptIndex*512)+int(p)] = freeFrameIndex
 	}
-	quotient := (pgIndex * 512) + int(w)
+
+	if finalFrame == 0 {
+		return pgIndex*512 + int(w)
+	}
+	quotient := (finalFrame * 512) + int(w)
 
 	return quotient
 }
