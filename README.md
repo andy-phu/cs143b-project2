@@ -20,10 +20,10 @@ GOOS=darwin GOARCH=arm64 go build -o bin/app-arm64-darwin main.go
 
 
 **Linux:** <br>
-.\bin/app-amd64.exe < -file1 init-dp.txt -file2 input-dp.txt > output.txt
+.\bin/app-amd64.exe < -file1 init-dp.txt -file2 input-dp.txt > output-dp.txt
 
 **Mac (m1):** <br>
-./bin/app-arm64-darwin -file1 init-dp.txt -file2 input-dp.txt > output.txt
+./bin/app-arm64-darwin -file1 init-dp.txt -file2 input-dp.txt > output-dp.txt
 
 
 
